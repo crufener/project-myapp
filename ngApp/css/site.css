@@ -1,0 +1,14 @@
+.done-true {
+    text-decoration: line-through;
+    color: gray;
+}
+
+ul {
+    list-style: none;
+}
+
+#listName {
+    cursor: pointer;
+
+
+}

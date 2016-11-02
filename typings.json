@@ -1,0 +1,7 @@
+{
+  "globalDependencies": {
+    "jsonwebtoken": "registry:dt/jsonwebtoken#0.0.0+20160720062725",
+    "mongodb": "registry:dt/mongodb#2.1.0+20160602142941",
+    "mongoose": "registry:dt/mongoose#4.5.9+20161010180758"
+  }
+}

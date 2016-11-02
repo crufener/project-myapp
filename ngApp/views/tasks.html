@@ -1,0 +1,46 @@
+<div class=well well-inverse>
+<h2>Task lists</h2>
+</div>
+<hr>
+<ul class="unstyled">
+    <li ng-repeat="list in controller.lists">
+        <div class="listName">
+            <span id="listName" ng-click="controller.showTask()"><p class="lead">{{list.name}}</p></span>
+            <div class="task" ng-if="controller.show" ng-model="controller.show">
+                <table class="table">
+                    <thead>
+                        <th>Complete</th>
+                        <th>Task</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </thead>
+                    <tr ng-repeat="task in list.tasks">
+                        <td>
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox" ng-model="task.done">
+                            </label>
+                        </td>
+                        <td>
+                            <span class="done-{{task.done}}">{{task.name}}</span>
+                        </td>
+                        <td>
+                            <a href="/edittask/{{task._id}}">Edit</a>
+                        </td>
+                        <td>
+                            <a href="/edittask/{{task._id}}">Delete</a>
+                        </td>
+                    </tr>
+                </table>
+                <form action="">
+                    <div class="form-group">
+                        <label for="newTask">New Task</label>
+                        <input type="text" id="newTask" class="form-controller" ng-model="task.name">
+                    </div>
+                    <div class="form-group">
+                        <button ng-click="controller.add({id: task._id})">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </li>
+</ul>

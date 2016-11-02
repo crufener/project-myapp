@@ -1,0 +1,12 @@
+<h2>Home</h2>
+<p>
+    {{controller.message}}
+</p>
+<div class="container">
+    <ul>
+        <li><a ui-sref="tasks" href="/tasks">tasks</a></li>
+        <li><a ui-sref="register" href="/register">Register</a></li>
+        <li><a ui-sref="login" href="/login">login</a></li>
+    </ul>
+</div>
+<input type="text" ng-model="controller.local">
