@@ -1,6 +1,6 @@
 namespace myapp {
 
-    angular.module('myapp', ['ui.router', 'ngResource', 'ui.bootstrap']).config((
+    angular.module('myapp', ['ui.router', 'ngResource', 'ngMaterial']).config((
         $stateProvider: ng.ui.IStateProvider,
         $urlRouterProvider: ng.ui.IUrlRouterProvider,
         $locationProvider: ng.ILocationProvider
@@ -31,24 +31,24 @@ namespace myapp {
                 controller: myapp.Controllers.TaskController,
                 controllerAs: 'controller'
             })
-            .state('register', {
-                url: '/register',
-                templateUrl: '/ngApp/views/register.html',
-                controller: myapp.Controllers.RegisterController,
-                controllerAs: 'controller'
-            })
-            .state('login', {
-                url: '/login',
-                templateUrl: '/ngApp/views/login.html',
-                controller: myapp.Controllers.LoginController,
-                controllerAs: 'controller'
-            })
-            .state('profile', {
-                url: '/profile/:username',
-                templateUrl: '/ngApp/views/profile.html',
-                controller: myapp.Controllers.ProfileController,
-                controllerAs: 'controller'
-            })
+            // .state('register', {
+            //     url: '/register',
+            //     templateUrl: '/ngApp/views/register.html',
+            //     controller: myapp.Controllers.RegisterController,
+            //     controllerAs: 'controller'
+            // })
+            // .state('login', {
+            //     url: '/login',
+            //     templateUrl: '/ngApp/views/login.html',
+            //     controller: myapp.Controllers.LoginController,
+            //     controllerAs: 'controller'
+            // })
+            // .state('profile', {
+            //     url: '/profile/:username',
+            //     templateUrl: '/ngApp/views/profile.html',
+            //     controller: myapp.Controllers.ProfileController,
+            //     controllerAs: 'controller'
+            // })
             .state('about', {
                 url: '/about',
                 templateUrl: '/ngApp/views/about.html',
@@ -60,13 +60,7 @@ namespace myapp {
                 templateUrl: '/ngApp/views/notFound.html'
             });
 
-        // Handle request for non-existent route
         $urlRouterProvider.otherwise('/notFound');
-
-        // Enable HTML5 navigation
         $locationProvider.html5Mode(true);
     });
-
-
-
 }

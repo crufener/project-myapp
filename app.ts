@@ -8,11 +8,12 @@ import * as ejs from 'ejs';
 import * as mongoose from 'mongoose';
 import * as mongodb from 'mongodb';
 import * as passport from 'passport';
+import * as crypto from 'crypto';
 
 /** TaskList model */
 import TaskList from './models/tasklist';
 /** User authentication model */
-require('./models/user');
+import User from './models/user';
 /** Bring in the passport configuration */
 require('./config/passport');
 /** This imports the routes for the index.ejs */
@@ -59,22 +60,22 @@ mongoose.connect('mongodb://crufener:jenniferr1@ds023624.mlab.com:23624/taskapp'
     tasklist3.name = 'Third List';
     tasklist3.isLoginedIn = true;
     tasklist1.tasks.push(
-      {name: 'thing one', dueDate: new Date('12/15/16'), done: false},
-      {name: 'thing two', dueDate: new Date('11/15/16'), done: false},
-      {name: 'thing three', dueDate: new Date('10/16/16'), done: true},
-      {name: 'thing four', dueDate: new Date('12/25/16'), done: true},
+      {name: 'thing one', done: false},
+      {name: 'thing two', done: false},
+      {name: 'thing three',done: true},
+      {name: 'thing four', done: true},
     );
     tasklist2.tasks.push(
-      {name: 'thing one', dueDate: new Date(), done: false},
-      {name: 'thing two', dueDate: new Date('11/15/16'), done: false},
-      {name: 'thing three', dueDate: new Date('10/16/16'), done: true},
-      {name: 'thing four', dueDate: new Date('12/25/16'), done: true},
+      {name: 'thing one', done: false},
+      {name: 'thing two', done: false},
+      {name: 'thing three', done: true},
+      {name: 'thing four', done: true},
     );
     tasklist3.tasks.push(
-      {name: 'thing one', dueDate: new Date('12/15/16'), done: false},
-      {name: 'thing two', dueDate: new Date('11/15/16'), done: false},
-      {name: 'thing three', dueDate: new Date('10/16/16'), done: true},
-      {name: 'thing four', dueDate: new Date('12/25/16'), done: true},
+      {name: 'thing one', done: false},
+      {name: 'thing two', done: false},
+      {name: 'thing three', done: true},
+      {name: 'thing four', done: true},
     );
     tasklist1.save();
     tasklist2.save();

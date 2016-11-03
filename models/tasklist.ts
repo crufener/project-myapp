@@ -15,7 +15,8 @@ let TaskSchema = new mongoose.Schema({
     name: {
         type: String,
         required: [true, 'You must enter a tasklist name'],
-        minlength: [4, 'The task must be at least 4 characters long.']
+        minlength: [4, 'The task must be at least 4 characters long.'],
+        maxlength: [30, 'The task should only be 30 characters long.']
     },
     done: {
         type: Boolean,
@@ -35,7 +36,14 @@ let TaskListSchema = new mongoose.Schema({
         required: true,
         default: false
     },
-    tasks: [TaskSchema]
+    tasks: {
+        type: [TaskSchema],
+        required: true,
+        default: {
+            name: 'Something important to do.',
+            done: false
+        }
+    }
 });
 
 export default mongoose.model<ITaskList>('TaskList', TaskListSchema);

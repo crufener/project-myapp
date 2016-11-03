@@ -3,7 +3,7 @@ import * as mongoose from 'mongoose';
 
 let LocalStrategy = require('passport-local').Strategy;
 /** The User mongoose model */
-let User = mongoose.model('User');
+import User from '../models/user';
 
 passport.serializeUser(function(user, done) {
   done(null, user);
