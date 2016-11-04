@@ -1,3 +1,29 @@
 <div class="well">
-    <h2>Welcome {{controller.username}}!</h2>
+    <h2>Welcome {{controller.info.username}}!</h2>
+    <p class="lead">See your <a href="/tasks.html" ui-sref="tasks">todo lists</a></p>
+</div>
+<div class="settings" style="padding: 2em">
+    <hr>
+    <h4>Username: {{controller.info.username}}</h4>
+    <h4>Email: {{controller.info.email}}</h4>
+    <hr>
+    <form  class="form">
+        <h3>Update your information</h3>
+        <div class="form-group">
+            <label for="username">Change Username</label>
+            <input class="form-control" type="text" ng-model="controller.info.username" value="{{controller.info.username}}">
+        </div>
+        <div class="form-group">
+            <label for="email">Change Email</label>
+            <input class="form-control" type="email" ng-model="controller.info.email" value="{{controller.info.email}}">
+        </div>
+        <div class="form-group">
+            <label for="username">Change Password</label>
+            <input class="form-control" type="text" ng-model="controller.info.password" value="{{controller.info.password}}">
+            <span>Current password: {{controller.info.password}}</span>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-warn" ng-click="updateInfo()">Submit</button>
+        </div>
+    </form>
 </div>

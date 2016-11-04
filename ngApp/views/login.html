@@ -4,7 +4,7 @@
     <p>{{controller.message}}</p>
 </div>
 <div class="container">
-    <form class="form" action="/v1/api/Login/Local" method="POST">
+    <form class="form"  >
         <div class="form-group">
 
             <label for="username">Username</label>
@@ -15,34 +15,7 @@
             <label for="password">Password</label>
             <input type="password" class="form-control" id="password" name="password" ng-model="controller.password">
         </div>
-        <a  class="btn btn-success" ng-click"controller.setToken()">Login</a>
+        {{controller.message}}
+        <button ng-click="controller.login()"  class="btn btn-success" type="submit">Login</button>
     </form>
-</div>
-<div class="container">
-
-<div class="col-sm-6 col-sm-offset-3">
-
-    <h1><span class="fa fa-sign-in"></span> Login</h1>
-
-    <!-- LOGIN FORM -->
-    <form action="/login" method="post">
-        <div class="form-group">
-            <label>Email</label>
-            <input type="text" class="form-control" name="email">
-        </div>
-        <div class="form-group">
-            <label>Password</label>
-            <input type="password" class="form-control" name="password">
-        </div>
-
-        <button type="submit" class="btn btn-warning btn-lg">Login</button>
-    </form>
-
-    <hr>
-
-    <p>Need an account? <a href="/signup">Signup</a></p>
-    <p>Or go <a href="/">home</a>.</p>
-
-</div>
-
 </div>

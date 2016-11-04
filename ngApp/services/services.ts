@@ -31,6 +31,20 @@ namespace myapp.Services {
             this.ListResource = $resource('/tasks/:id/:tasks');
         }
     }
+    export class UserService {
+        private UserResource;
+        private username;
+        private password;
+
+        public getInfo() {
+            return this.UserResource.get().$promise;
+        }
+
+        constructor($resource: ng.resource.IResourceService) {
+            this.UserResource = $resource('/user/profile');
+        }
+    }
+    angular.module('myapp').service('userService', UserService);
 
     angular.module('myapp').service("taskListService", TaskListService);
 }

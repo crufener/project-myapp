@@ -1,9 +1,10 @@
 namespace myapp {
 
-    angular.module('myapp', ['ui.router', 'ngResource', 'ngMaterial']).config((
+    angular.module('myapp', ['ui.router', 'ngResource', 'ngMaterial', 'satellizer']).config((
         $stateProvider: ng.ui.IStateProvider,
         $urlRouterProvider: ng.ui.IUrlRouterProvider,
-        $locationProvider: ng.ILocationProvider
+        $locationProvider: ng.ILocationProvider,
+        $authProvider
     ) => {
         // Define routes
         $stateProvider
@@ -31,24 +32,24 @@ namespace myapp {
                 controller: myapp.Controllers.TaskController,
                 controllerAs: 'controller'
             })
-            // .state('register', {
-            //     url: '/register',
-            //     templateUrl: '/ngApp/views/register.html',
-            //     controller: myapp.Controllers.RegisterController,
-            //     controllerAs: 'controller'
-            // })
-            // .state('login', {
-            //     url: '/login',
-            //     templateUrl: '/ngApp/views/login.html',
-            //     controller: myapp.Controllers.LoginController,
-            //     controllerAs: 'controller'
-            // })
-            // .state('profile', {
-            //     url: '/profile/:username',
-            //     templateUrl: '/ngApp/views/profile.html',
-            //     controller: myapp.Controllers.ProfileController,
-            //     controllerAs: 'controller'
-            // })
+            .state('signup', {
+                url: '/signup',
+                templateUrl: '/ngApp/views/signup.html',
+                controller: myapp.Controllers.SignupController,
+                controllerAs: 'controller'
+            })
+            .state('login', {
+                url: '/login',
+                templateUrl: '/ngApp/views/login.html',
+                controller: myapp.Controllers.LoginController,
+                controllerAs: 'controller'
+            })
+            .state('profile', {
+                url: '/profile',
+                templateUrl: '/ngApp/views/profile.html',
+                controller: myapp.Controllers.ProfileController,
+                controllerAs: 'controller'
+            })
             .state('about', {
                 url: '/about',
                 templateUrl: '/ngApp/views/about.html',
@@ -62,5 +63,7 @@ namespace myapp {
 
         $urlRouterProvider.otherwise('/notFound');
         $locationProvider.html5Mode(true);
+        $authProvider.loginUrl = '/user/Login';
+        $authProvider.signupUrl = '/user/Register';
     });
 }

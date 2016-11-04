@@ -42,9 +42,11 @@ app.use(passport.initialize());
 import users from './routes/users';
 
 
+
 app.use('/', routes);
-app.use('/v1/api', users);
+app.use('/user', users);
 app.use('/tasks', taskRoute);
+
 
 //SEED THE DATABASE WITH SOME DATA
 mongoose.connect('mongodb://crufener:jenniferr1@ds023624.mlab.com:23624/taskapp').then(() => {
