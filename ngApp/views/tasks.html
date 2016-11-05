@@ -45,7 +45,7 @@
     </li>
 </ul>
 <hr>
-<ul ng-if="controller.!isAuthenticated()">
+<ul ng-if="!controller.isAuthenticated()">
   <li><a ui-sref="login" href="/login">Login</a></li>
   <li><a ui-sref="signup" href="/signup">Sign up</a></li>
 </ul>

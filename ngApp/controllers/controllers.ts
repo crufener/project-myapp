@@ -3,12 +3,20 @@ namespace myapp.Controllers {
 
     }
     export class ProfileController {
+        //this is an object with the current users
+        // information in it.
         public info;
-
+        // this function get all the info
+        // stored for the currently logged in
+        // person. Confirms user is valid then sends all the
+        // user information
         public getInfo() {
+            //$resource located in userService
+            // calls  ------$resource('/user/profile').get().$promise;-----------
             this.userService.getInfo().then((user) => {
+
                 this.info = user;
-                console.log(user);
+
             });
         }
 
@@ -65,6 +73,8 @@ namespace myapp.Controllers {
             });
         }
 
+        // Inject the angular $state service
+        // and the $authProvider using $auth.
         constructor(
             private $auth,
             private $state: ng.ui.IStateService
